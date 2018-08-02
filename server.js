@@ -10,7 +10,7 @@ const app = express();
 
 // Serve only the static files form the dist directory
 
-app.use(express.static('./dist/out-tsc'));
+app.use(express.static(__dirname + '/dist/out-tsc'));
 
 
 
@@ -18,7 +18,7 @@ app.get('/', function(req,res) {
 
     
 
-res.sendFile(path.join('./dist/out-tsc/index.html'));
+res.sendFile(path.join(__dirname + '/dist/out-tsc/index.html'));
 
 });
 
