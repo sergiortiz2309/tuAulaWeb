@@ -41,17 +41,13 @@
                 </div>
             </mat-tab>
             <mat-tab label="UPZ preferidas" [disabled]="selectedIndex != 1"> 
-              <mat-list>
-                <mat-list-item><mat-checkbox>Upz 1</mat-checkbox></mat-list-item>
-                <mat-list-item><mat-checkbox>Upz 2</mat-checkbox></mat-list-item>
-                <mat-list-item><mat-checkbox>Upz 3</mat-checkbox></mat-list-item>
+              <mat-list >
+                <mat-list-item *ngFor="let upz of upzs"><mat-checkbox>{{upz.name}}</mat-checkbox></mat-list-item>                
               </mat-list>            
             </mat-tab>
             <mat-tab label="Categorías preferidas" [disabled]="selectedIndex != 2">
               <mat-list>
-                  <mat-list-item><mat-checkbox>Categoría 1</mat-checkbox></mat-list-item>
-                  <mat-list-item><mat-checkbox>Categoría 2</mat-checkbox></mat-list-item>
-                  <mat-list-item><mat-checkbox>Categoría 3</mat-checkbox></mat-list-item>
+                  <mat-list-item *ngFor="let categoria of categorias"><mat-checkbox>{{categoria.name}}</mat-checkbox></mat-list-item>                  
               </mat-list>            
             </mat-tab>
           </mat-tab-group>
