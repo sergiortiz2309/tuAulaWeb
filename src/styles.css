@@ -1,5 +1,5 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import './app/assets/stylesheets/custom-theme.css';
+/* @import 'assets/stylesheets/custom-theme.scss'; */
 
 body { 
   font-family: Roboto, Arial, sans-serif;
