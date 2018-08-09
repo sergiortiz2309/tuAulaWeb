@@ -1,0 +1,17 @@
+.center-content{
+    max-width: 600px;
+    height: 500px;
+    margin: auto;
+  }
+
+  .container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px
+} 
+
+.container > * {
+  width: 100%;
+} 
+
+  
