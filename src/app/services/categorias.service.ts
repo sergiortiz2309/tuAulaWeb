@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AppSettings } from '../../AppSettings';
-import { ApiService } from '../api.service';
-import { Observable } from '../../../../node_modules/rxjs';
-import { Categoria } from '../../models/categoria';
-import { HttpErrorResponse } from '../../../../node_modules/@angular/common/http';
+import { AppSettings } from '../AppSettings';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
+import { Categoria } from '../models/categoria';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class CategoriasService {
     this.apiService = apiService
   }
 
-  getCategorias(): Observable<Categoria[]> {
+  getCategorias(): Observable<Array<Categoria>> {
 
     return new Observable( (observer) => {
       this.apiService.get(AppSettings.CATEGORIAS_RESOURCE_NAME)
