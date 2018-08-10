@@ -1,3 +1,23 @@
-<p>
-  usuario works!
-</p>
+<div class="basic-container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <mat-card >
+       
+        <mat-card-content>
+          <mat-tab-group [selectedIndex]="selectedIndex">
+            <mat-tab label="Usuario" [disabled]="selectedIndex != 0">
+              <div class="container">    
+                <div class="row">             
+                    <label class="col">Nombre</label>
+                      <p class="col">Sergio Ortiz</p>
+                    </div>
+                </div>
+            </mat-tab>
+            
+          </mat-tab-group>
+        </mat-card-content>
+        
+      </mat-card>
+        </div>
+  </div>
+</div>

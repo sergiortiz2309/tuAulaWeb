@@ -9,10 +9,7 @@ import { LandingComponent } from '../components/landing/landing.component';
 import { AppComponent } from '../components/core/app.component';
 import { LoginComponent } from '../components/login/login.component';
 import { RegistroComponent } from '../components/registro/registro.component';
-<<<<<<< HEAD
 import { UsuarioComponent } from '../components/usuario/usuario.component';
-=======
->>>>>>> e2bd04cae15c8b9aea5a478f2ac37ef326bde931
 import {
   MatAutocompleteModule,
   MatBadgeModule,
