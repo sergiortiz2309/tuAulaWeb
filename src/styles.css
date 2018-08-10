@@ -1,5 +1,10 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-/* @import 'assets/stylesheets/custom-theme.scss'; */
+@import '~angular-notifier/styles/core.css';
+@import '~angular-notifier/styles/themes/theme-material.css';
+@import '~angular-notifier/styles/types/type-error.css';
+@import '~angular-notifier/styles/types/type-info.css';
+@import '~angular-notifier/styles/types/type-success.css';
+@import '~angular-notifier/styles/types/type-warning.css';
 
 body { 
   font-family: Roboto, Arial, sans-serif;

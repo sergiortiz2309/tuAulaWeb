@@ -1,6 +1,7 @@
 import { Upz } from './upz';
 import { Categoria } from './categoria';
 import { Modalidad } from './modalidad';
+import { Clase } from './clase';
 
 export class Usuario {
     id: number;
@@ -14,6 +15,7 @@ export class Usuario {
     upzsPreferidas: Array<Upz>;
     modalidadesPreferidas: Array<Modalidad>;
     categoriasPreferidas: Array<Categoria>;
+    clases : Array<Clase>;
     constructor(){
         this.upzsPreferidas = new Array<Upz>();
         this.modalidadesPreferidas = new Array<Modalidad>();

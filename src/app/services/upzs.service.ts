@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AppSettings } from '../../AppSettings';
-import { Observable } from '../../../../node_modules/rxjs';
-import { Upz } from '../../models/upz';
-import { ApiService } from '../api.service';
+import { AppSettings } from '../AppSettings';
+import { Observable } from 'rxjs';
+import { Upz } from '../models/upz';
+import { ApiService } from './api.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({

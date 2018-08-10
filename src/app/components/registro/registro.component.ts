@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Upz } from '../../models/upz';
 import { Usuario } from '../../models/usuario';
 import { Categoria } from '../../models/categoria';
-import { UpzsService } from '../../services/upzs/upzs.service';
-import { CategoriasService } from '../../services/categorias/categorias.service';
-import { ModalidadesService } from '../../services/modalidades/modalidades.service';
+import { UpzsService } from '../../services/upzs.service';
+import { CategoriasService } from '../../services/categorias.service';
+import { ModalidadesService } from '../../services/modalidades.service';
+import { Modalidad } from '../../models/modalidad';
 
 @Component({
   selector: 'app-registro',
@@ -13,11 +14,12 @@ import { ModalidadesService } from '../../services/modalidades/modalidades.servi
 })
 export class RegistroComponent implements OnInit {
 
-  usuario = new Usuario();
+  public usuario = new Usuario();
   repeticionDePassword : string;
   selectedIndex : number;
   upzs : Array<Upz>;
   categorias : Array<Categoria>;
+  modalidades : Array<Modalidad>;
 
   //Services
   upzsService : UpzsService;
@@ -34,7 +36,7 @@ export class RegistroComponent implements OnInit {
     this.selectedIndex = 0;
     this.upzsService.getUpzs().subscribe(data =>{ this.upzs = data; });
     this.categoriasService.getCategorias().subscribe(data => this.categorias = data );
-    this.modalidadesService.getModalidades().subscribe(data => this.categorias = data );
+    this.modalidadesService.getModalidades().subscribe(data => this.modalidades = data );
   }
 
   onNext(){
