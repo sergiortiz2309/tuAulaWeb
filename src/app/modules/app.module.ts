@@ -9,7 +9,7 @@ import { LandingComponent } from '../components/landing/landing.component';
 import { AppComponent } from '../components/core/app.component';
 import { LoginComponent } from '../components/login/login.component';
 import { RegistroComponent } from '../components/registro/registro.component';
-
+import { UsuarioComponent } from '../components/usuario/usuario.component';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -54,7 +54,8 @@ import {
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    LandingComponent
+    LandingComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
