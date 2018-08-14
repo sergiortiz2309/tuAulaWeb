@@ -39,7 +39,7 @@ var AppSettings = /** @class */ (function () {
     AppSettings.API_BASEURL = 'https://tuaulaapi.herokuapp.com/';
     AppSettings.CATEGORIAS_RESOURCE_NAME = 'categoria';
     AppSettings.UPZS_RESOURCE_NAME = 'upzs';
-    AppSettings.MODALIDADES_RESOURCE_NAME = 'modalidades';
+    AppSettings.MODALIDADES_RESOURCE_NAME = 'modalidads';
     AppSettings.USUARIOS_RESOURCE_NAME = 'usuarios';
     return AppSettings;
 }());
@@ -66,7 +66,7 @@ module.exports = ".center-content{\r\n    max-width: 400px;\r\n    height: 500px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class=\"mat-primary mat-hue-2\">\r\n    <button mat-button routerLink=\"\"><h3>Tu Aula</h3></button>\r\n</mat-toolbar>\r\n<mat-progress-bar mode=\"indeterminate\" [hidden]=\"apiService != undefined ? !apiService.loading : true\"></mat-progress-bar>\r\n<router-outlet></router-outlet>\r\n<notifier-container></notifier-container>\r\n"
+module.exports = "\r\n<router-outlet></router-outlet>\r\n<notifier-container></notifier-container>\r\n"
 
 /***/ }),
 
@@ -107,6 +107,106 @@ var AppComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_services_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"]])
     ], AppComponent);
     return AppComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/dashboard/dashboard.component.css":
+/*!**************************************************************!*\
+  !*** ./src/app/components/dashboard/dashboard.component.css ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/dashboard/dashboard.component.html":
+/*!***************************************************************!*\
+  !*** ./src/app/components/dashboard/dashboard.component.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-toolbar class=\"mat-primary mat-hue-2\">\n  <button mat-button routerLink=\"\"><h3>Tu Aula</h3></button>\n</mat-toolbar>\n<div class=\"container-fluid\"> \n  <div class=\"row\">\n\n    <div class=\"col-md-1\"></div>\n    <div class=\"col-md-4\">\n      <h3>Mis Clases</h3>\n      <mat-form-field>\n          <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n      </mat-form-field>\n      <div class=\"mat-elevation-z8\">\n        <table mat-table [dataSource]=\"dataSource\" matSort>\n          <ng-container matColumnDef=\"nombreCurso\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Curso </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.nombreCurso}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"nombreUpz\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Upz </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.nombreUpz}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"fechaInicial\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Inicial </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.fechaInicial}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"fechaFinal\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Final </th>\n            <td mat-cell *matCellDef=\"let row\"> {{row.fechaFinal}} </td>\n          </ng-container>\n          <tr mat-header-row *matHeaderRowDef=\"misClasesColumnsToDisplay\"></tr>\n          <tr mat-row *matRowDef=\"let row; columns: misClasesColumnsToDisplay;\" [routerLink]=\"['/mi-clase', row.id]\"></tr>\n        </table>\n      \n        <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\" showFirstLastButtons></mat-paginator>\n      </div>      \n    </div>\n\n    <div class=\"col-md-2\"></div>\n    <div class=\"col-md-4\">\n      <h3>Mis Cursos Sugeridos </h3>\n    </div>\n  </div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/components/dashboard/dashboard.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/components/dashboard/dashboard.component.ts ***!
+  \*************************************************************/
+/*! exports provided: DashboardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/@angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _services_dashboards_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/dashboards.service */ "./src/app/services/dashboards.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DashboardComponent = /** @class */ (function () {
+    function DashboardComponent(dashboardsService) {
+        this.dashboardsService = dashboardsService;
+        this.misClasesColumnsToDisplay = [
+            'nombreCurso',
+            'counombreUpz',
+            'fechaInicial',
+            'fechaFinal'
+        ];
+    }
+    DashboardComponent.prototype.getDashboard = function () {
+        var _this = this;
+        this.dashboardsService
+            .getDashboard()
+            .subscribe(function (dashboard) {
+            _this.dsMisClases = new _node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](dashboard.misClases);
+            _this.dsMisClases.sort = _this.sortMisClases;
+            _this.dsMisClases.paginator = _this.paginatorMisClase;
+        }, function (error) { });
+    };
+    DashboardComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"]),
+        __metadata("design:type", _node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"])
+    ], DashboardComponent.prototype, "paginatorMisClase", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"]),
+        __metadata("design:type", _node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"])
+    ], DashboardComponent.prototype, "sortMisClases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"]),
+        __metadata("design:type", _node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"])
+    ], DashboardComponent.prototype, "paginatorMisCursos", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"]),
+        __metadata("design:type", _node_modules_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"])
+    ], DashboardComponent.prototype, "sortMisCursos", void 0);
+    DashboardComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-dashboard',
+            template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/components/dashboard/dashboard.component.html"),
+            styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/components/dashboard/dashboard.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_dashboards_service__WEBPACK_IMPORTED_MODULE_2__["DashboardsService"]])
+    ], DashboardComponent);
+    return DashboardComponent;
 }());
 
 
@@ -194,7 +294,7 @@ module.exports = ".example-container {\r\n    display: flex;\r\n    flex-directi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"basic-container\"> \r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 mx-auto\">\r\n      <mat-card>\r\n        <mat-card-header class=\"m-md-3\">\r\n          <div class=\"col-md-8 mx-auto\">\r\n              <img mat-card-image src=\"assets\\img\\log.png\" alt=\"\">\r\n            </div>\r\n          </mat-card-header>\r\n        <mat-card-content>\r\n          <div class=\"example-container\">\r\n              <mat-form-field>\r\n                  <input matInput placeholder=\"Ingresa tu email\">\r\n              </mat-form-field>    \r\n              <mat-form-field>\r\n                <input matInput type=\"password\" placeholder=\"Ingresa tu contraseña\">\r\n            </mat-form-field>    \r\n          </div>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n          <button mat-button>Ingresar</button>\r\n          <button mat-button routerLink=\"/registro\">Registro</button>\r\n          <button mat-button>Olvidé mi contraseña</button>\r\n        </mat-card-actions>\r\n      </mat-card>\r\n          </div>\r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<mat-toolbar class=\"mat-primary mat-hue-2\">\r\n  <button mat-button routerLink=\"\"><h3>Tu Aula</h3></button>\r\n</mat-toolbar>\r\n<div class=\"basic-container\"> \r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 mx-auto\">\r\n      <mat-card>\r\n        <mat-card-header class=\"m-md-3\">\r\n          <div class=\"col-md-8 mx-auto\">\r\n              <img mat-card-image src=\"assets\\img\\log.png\" alt=\"\">\r\n            </div>\r\n          </mat-card-header>\r\n        <mat-card-content>\r\n          <div class=\"example-container\">\r\n              <mat-form-field>\r\n                  <input matInput placeholder=\"Ingresa tu email\">\r\n              </mat-form-field>    \r\n              <mat-form-field>\r\n                <input matInput type=\"password\" placeholder=\"Ingresa tu contraseña\">\r\n            </mat-form-field>    \r\n          </div>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n          <button mat-button routerLink=\"/dashboard\">Ingresar</button>\r\n          <button mat-button routerLink=\"/registro\">Registro</button>\r\n          <button mat-button>Olvidé mi contraseña</button>\r\n        </mat-card-actions>\r\n      </mat-card>\r\n          </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -257,7 +357,7 @@ module.exports = ".center-content{\r\n    max-width: 600px;\r\n    height: 500px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"basic-container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-5 mx-auto\">\r\n      <mat-card >\r\n        <mat-card-header>\r\n          <mat-card-title>Registro</mat-card-title>\r\n        </mat-card-header>\r\n        <mat-card-content>\r\n          <mat-tab-group [selectedIndex]=\"selectedIndex\">\r\n            <mat-tab label=\"Usuario\" [disabled]=\"selectedIndex != 0\">\r\n              <div class=\"container\">\r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Ingresa tu email\" [(ngModel)]=\"usuario.email\">\r\n                  </mat-form-field>    \r\n                  <mat-form-field>\r\n                    <input matInput type=\"password\" placeholder=\"Ingresa tu contraseña\" [(ngModel)]=\"usuario.password\">\r\n                  </mat-form-field>    \r\n                  <mat-form-field>\r\n                      <input matInput type=\"password\" placeholder=\"Repite tu contraseña\" [(ngModel)]=\"repeticionDePassword\">\r\n                  </mat-form-field>    \r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Nombre\" [(ngModel)]=\"usuario.nombre\">\r\n                  </mat-form-field>    \r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Apellido\" [(ngModel)]=\"usuario.apellido\">\r\n                  </mat-form-field>  \r\n                  <mat-form-field>\r\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Fecha de nacimiento\" [(ngModel)]=\"usuario.fechaDeNacimiento\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #picker></mat-datepicker>\r\n                  </mat-form-field>                \r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Dirección\" [(ngModel)]=\"usuario.direccion\">\r\n                  </mat-form-field>  \r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Telefono\" [(ngModel)]=\"usuario.telefono\">\r\n                  </mat-form-field>  \r\n                </div>\r\n            </mat-tab>\r\n            <mat-tab label=\"UPZ preferidas\" [disabled]=\"selectedIndex != 1\"> \r\n              <mat-list >\r\n                <mat-list-item *ngFor=\"let upz of upzs\"><mat-checkbox>{{upz.name}}</mat-checkbox></mat-list-item>                \r\n              </mat-list>            \r\n            </mat-tab>\r\n            <mat-tab label=\"Categorías preferidas\" [disabled]=\"selectedIndex != 2\">\r\n              <mat-list>\r\n                  <mat-list-item *ngFor=\"let categoria of categorias\"><mat-checkbox>{{categoria.name}}</mat-checkbox></mat-list-item>                  \r\n              </mat-list>            \r\n            </mat-tab>\r\n          </mat-tab-group>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n          <button mat-button *ngIf=\"selectedIndex > 0\" (click)=\"onBack()\">Back</button>\r\n          <button mat-button *ngIf=\"selectedIndex < 2\" (click)=\"onNext()\">Next</button>\r\n          <button mat-button *ngIf=\"selectedIndex == 2\">Registrarse</button>\r\n          <button mat-button routerLink=\"\">Cancelar</button>\r\n        </mat-card-actions>\r\n      </mat-card>\r\n        </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "\r\n<mat-toolbar class=\"mat-primary mat-hue-2\">\r\n  <button mat-button routerLink=\"\"><h3>Tu Aula</h3></button>\r\n</mat-toolbar>\r\n<mat-progress-bar mode=\"indeterminate\" [hidden]=\"apiService != undefined ? !apiService.loading : true\"></mat-progress-bar>\r\n<div class=\"basic-container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-5 mx-auto\">\r\n      <mat-card >\r\n        <mat-card-header>\r\n          <mat-card-title>Registro</mat-card-title>\r\n        </mat-card-header>\r\n        <mat-card-content>\r\n          <mat-tab-group [selectedIndex]=\"selectedIndex\">\r\n            <mat-tab label=\"Usuario\" [disabled]=\"selectedIndex != 0\">\r\n              <div class=\"container\">\r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Ingresa tu email\" [(ngModel)]=\"usuario.email\">\r\n                  </mat-form-field>    \r\n                  <mat-form-field>\r\n                    <input matInput type=\"password\" placeholder=\"Ingresa tu contraseña\" [(ngModel)]=\"usuario.password\">\r\n                  </mat-form-field>    \r\n                  <mat-form-field>\r\n                      <input matInput type=\"password\" placeholder=\"Repite tu contraseña\" [(ngModel)]=\"repeticionDePassword\">\r\n                  </mat-form-field>    \r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Nombre\" [(ngModel)]=\"usuario.nombre\">\r\n                  </mat-form-field>    \r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Apellido\" [(ngModel)]=\"usuario.apellido\">\r\n                  </mat-form-field>  \r\n                  <mat-form-field>\r\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Fecha de nacimiento\" [(ngModel)]=\"usuario.fechaDeNacimiento\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #picker></mat-datepicker>\r\n                  </mat-form-field>                \r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Dirección\" [(ngModel)]=\"usuario.direccion\">\r\n                  </mat-form-field>  \r\n                  <mat-form-field>\r\n                      <input matInput placeholder=\"Telefono\" [(ngModel)]=\"usuario.telefono\">\r\n                  </mat-form-field>  \r\n                </div>\r\n            </mat-tab>\r\n            <mat-tab label=\"UPZ preferidas\" [disabled]=\"selectedIndex != 1\"> \r\n              <mat-list >\r\n                <mat-list-item *ngFor=\"let upz of upzs\"><mat-checkbox>{{upz.name}}</mat-checkbox></mat-list-item>                \r\n              </mat-list>            \r\n            </mat-tab>\r\n            <mat-tab label=\"Categorías preferidas\" [disabled]=\"selectedIndex != 2\">\r\n              <mat-list>\r\n                  <mat-list-item *ngFor=\"let categoria of categorias\"><mat-checkbox>{{categoria.name}}</mat-checkbox></mat-list-item>                  \r\n              </mat-list>            \r\n            </mat-tab>\r\n          </mat-tab-group>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n          <button mat-button *ngIf=\"selectedIndex > 0\" (click)=\"onBack()\">Back</button>\r\n          <button mat-button *ngIf=\"selectedIndex < 2\" (click)=\"onNext()\">Next</button>\r\n          <button mat-button *ngIf=\"selectedIndex == 2\">Registrarse</button>\r\n          <button mat-button routerLink=\"\">Cancelar</button>\r\n        </mat-card-actions>\r\n      </mat-card>\r\n        </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -347,7 +447,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  usuario works!\n</p>\n"
+module.exports = "<mat-toolbar class=\"mat-primary mat-hue-2\">\r\n  <button mat-button routerLink=\"\"><h3>Tu Aula</h3></button>\r\n</mat-toolbar>\r\n<div class=\"basic-container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-5 mx-auto\">\r\n      <mat-card >\r\n       \r\n        <mat-card-content>\r\n          <mat-tab-group [selectedIndex]=\"selectedIndex\">\r\n            <mat-tab label=\"Usuario\" [disabled]=\"selectedIndex != 0\">\r\n              <div class=\"container\">    \r\n                <div class=\"row\">             \r\n                    <label class=\"col\">Nombre</label>\r\n                      <p class=\"col\">Sergio Ortiz</p>\r\n                    </div>\r\n                </div>\r\n            </mat-tab>\r\n            \r\n          </mat-tab-group>\r\n        </mat-card-content>\r\n        \r\n      </mat-card>\r\n        </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -362,6 +462,8 @@ module.exports = "<p>\n  usuario works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsuarioComponent", function() { return UsuarioComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_usuario_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/usuario.service */ "./src/app/services/usuario.service.ts");
+/* harmony import */ var _models_usuario__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/usuario */ "./src/app/models/usuario.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -372,10 +474,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var UsuarioComponent = /** @class */ (function () {
-    function UsuarioComponent() {
+    function UsuarioComponent(usuariosService) {
+        this.usuariosService = usuariosService;
+        this.usuario = new _models_usuario__WEBPACK_IMPORTED_MODULE_2__["Usuario"]();
     }
     UsuarioComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.usuariosService.getUsuario().subscribe(function (data) { return _this.usuario = data; });
     };
     UsuarioComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -383,7 +491,7 @@ var UsuarioComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./usuario.component.html */ "./src/app/components/usuario/usuario.component.html"),
             styles: [__webpack_require__(/*! ./usuario.component.css */ "./src/app/components/usuario/usuario.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_usuario_service__WEBPACK_IMPORTED_MODULE_1__["UsuariosService"]])
     ], UsuarioComponent);
     return UsuarioComponent;
 }());
@@ -430,6 +538,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_landing_landing_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/landing/landing.component */ "./src/app/components/landing/landing.component.ts");
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/login/login.component */ "./src/app/components/login/login.component.ts");
 /* harmony import */ var _components_registro_registro_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/registro/registro.component */ "./src/app/components/registro/registro.component.ts");
+/* harmony import */ var _components_usuario_usuario_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/usuario/usuario.component */ "./src/app/components/usuario/usuario.component.ts");
+/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -441,10 +551,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var routes = [
     { path: '', component: _components_landing_landing_component__WEBPACK_IMPORTED_MODULE_2__["LandingComponent"] },
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
-    { path: 'registro', component: _components_registro_registro_component__WEBPACK_IMPORTED_MODULE_4__["RegistroComponent"] }
+    { path: 'registro', component: _components_registro_registro_component__WEBPACK_IMPORTED_MODULE_4__["RegistroComponent"] },
+    { path: 'usdashboard', component: _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"] },
+    { path: 'usuario', component: _components_usuario_usuario_component__WEBPACK_IMPORTED_MODULE_5__["UsuarioComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -485,12 +599,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_registro_registro_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/registro/registro.component */ "./src/app/components/registro/registro.component.ts");
 /* harmony import */ var _components_usuario_usuario_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/usuario/usuario.component */ "./src/app/components/usuario/usuario.component.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/dashboard/dashboard.component */ "./src/app/components/dashboard/dashboard.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -514,7 +630,8 @@ var AppModule = /** @class */ (function () {
                 _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
                 _components_registro_registro_component__WEBPACK_IMPORTED_MODULE_10__["RegistroComponent"],
                 _components_landing_landing_component__WEBPACK_IMPORTED_MODULE_7__["LandingComponent"],
-                _components_usuario_usuario_component__WEBPACK_IMPORTED_MODULE_11__["UsuarioComponent"]
+                _components_usuario_usuario_component__WEBPACK_IMPORTED_MODULE_11__["UsuarioComponent"],
+                _components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_13__["DashboardComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -725,6 +842,89 @@ var CategoriasService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/dashboards.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/dashboards.service.ts ***!
+  \************************************************/
+/*! exports provided: DashboardsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardsService", function() { return DashboardsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DashboardsService = /** @class */ (function () {
+    function DashboardsService() {
+    }
+    DashboardsService.prototype.getDashboard = function () {
+        var _this = this;
+        return new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
+            observer.next(_this.getFakeDashboard());
+        });
+    };
+    DashboardsService.prototype.getFakeDashboard = function () {
+        var dashboard = {
+            misClases: [
+                {
+                    id: 1,
+                    idCurso: 1,
+                    nombreCurso: "Curso 1",
+                    idUpz: 1,
+                    nombreUpz: "UPZ 1",
+                    ubicacion: "Ubicacion 1",
+                    fechaFinal: new Date(),
+                    fechaInicial: new Date()
+                },
+                {
+                    id: 2,
+                    idCurso: 2,
+                    nombreCurso: "Curso 2",
+                    idUpz: 1,
+                    nombreUpz: "UPZ 1",
+                    ubicacion: "Ubicacion 2",
+                    fechaFinal: new Date(),
+                    fechaInicial: new Date()
+                }
+            ],
+            misCursosSugeridos: [
+                {
+                    id: 1,
+                    nombre: "Pintura al oleo",
+                    idCategoria: 1,
+                    nombreCategoria: "Pintura",
+                    idModalidad: 1,
+                    nombreModalidad: "Presencial",
+                    clases: []
+                }
+            ]
+        };
+        return dashboard;
+    };
+    DashboardsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], DashboardsService);
+    return DashboardsService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/modalidades.service.ts":
 /*!*************************************************!*\
   !*** ./src/app/services/modalidades.service.ts ***!
@@ -736,7 +936,7 @@ var CategoriasService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalidadesService", function() { return ModalidadesService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api.service */ "./src/app/services/api.service.ts");
 /* harmony import */ var _AppSettings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../AppSettings */ "./src/app/AppSettings.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -758,7 +958,7 @@ var ModalidadesService = /** @class */ (function () {
     }
     ModalidadesService.prototype.getModalidades = function () {
         var _this = this;
-        return new _node_modules_rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
             _this.apiService.get(_AppSettings__WEBPACK_IMPORTED_MODULE_3__["AppSettings"].MODALIDADES_RESOURCE_NAME)
                 .subscribe(function (data) { return observer.next(data); }, function (errorResponse) { return observer.error(errorResponse); });
         });
@@ -827,6 +1027,62 @@ var UpzsService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/usuario.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/usuario.service.ts ***!
+  \*********************************************/
+/*! exports provided: UsuariosService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsuariosService", function() { return UsuariosService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_usuario__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/usuario */ "./src/app/models/usuario.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var UsuariosService = /** @class */ (function () {
+    function UsuariosService() {
+    }
+    UsuariosService.prototype.getUsuario = function () {
+        var _this = this;
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (observer) {
+            observer.next(_this.getFakeUsuario());
+        });
+    };
+    UsuariosService.prototype.getFakeUsuario = function () {
+        var usuario = new _models_usuario__WEBPACK_IMPORTED_MODULE_1__["Usuario"]();
+        usuario.apellido = "aaa";
+        usuario.direccion = "sss";
+        usuario.categoriasPreferidas = [{ id: 1, nombre: "Idiomas" }];
+        usuario.email = "dkdkd";
+        usuario.nombre = "cesar";
+        return usuario;
+    };
+    UsuariosService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], UsuariosService);
+    return UsuariosService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -887,7 +1143,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sortiz\Documents\Curso desarrollo FullStack\tuAulaWeb\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\Projects\tuAulaWeb\src\main.ts */"./src/main.ts");
 
 
 /***/ })

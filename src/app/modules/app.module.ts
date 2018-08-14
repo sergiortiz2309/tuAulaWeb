@@ -47,6 +47,7 @@ import {
   MatTooltipModule,
   MatTreeModule
 } from '@angular/material';
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import {
     LoginComponent,
     RegistroComponent,
     LandingComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
