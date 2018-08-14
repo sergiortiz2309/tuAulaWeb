@@ -19,11 +19,12 @@ export class UsuariosService {
   private getFakeUsuario(){
     
     let usuario = new Usuario();
-    usuario.apellido = "aaa";
-    usuario.direccion = "sss";
+    usuario.apellido = "Ortiz";
+    usuario.direccion = "Calle falsa 123";
     usuario.categoriasPreferidas = [{id : 1, nombre : "Idiomas"}];
-    usuario.email = "dkdkd";
-    usuario.nombre = "cesar";
+    usuario.email = "abc@gmail.com";
+    usuario.telefono = "300 500 2001"
+    usuario.nombre = "Cesar";
     return usuario;
   }
 

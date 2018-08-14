@@ -2,25 +2,50 @@
   <button mat-button routerLink=""><h3>Tu Aula</h3></button>
 </mat-toolbar>
 <div class="basic-container">
-  <div class="row">
-    <div class="col-md-5 mx-auto">
+  
       <mat-card >
-       
-        <mat-card-content>
-          <mat-tab-group [selectedIndex]="selectedIndex">
-            <mat-tab label="Usuario" [disabled]="selectedIndex != 0">
-              <div class="container">    
-                <div class="row">             
-                    <label class="col">Nombre</label>
-                      <p class="col">Sergio Ortiz</p>
-                    </div>
-                </div>
-            </mat-tab>
-            
-          </mat-tab-group>
-        </mat-card-content>
+        <mat-card-header>
+          <mat-card-subtitle>Datos de usuario</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>   
+          <div class="row">             
+            <label class="col col-30">Nombre</label>
+            <label class="col col-50">{{usuario.nombre}}</label>
+          </div>  
+          <div class="row">             
+            <label class="col col-30">Apellido</label>
+            <label class="col col-50">{{usuario.apellido}}</label>
+          </div>  
+          <div class="row">             
+            <label class="col col-30">Dirección</label>
+            <label class="col col-50">{{usuario.direccion}}</label>
+          </div>  
+          <div class="row">             
+            <label class="col col-30">Teléfono</label>
+            <label class="col col-50">{{usuario.telefono}}</label>
+          </div>  
+          <div class="row">             
+            <label class="col col-30">E-mail</label>
+            <label class="col col-50">{{usuario.email}}</label>
+          </div>            
+        </mat-card-content>        
+      </mat-card>    
         
+      <mat-card >
+          <mat-card-header>
+            <mat-card-subtitle>Preferencias</mat-card-subtitle>
+          </mat-card-header>
+           
+          <mat-card-content>
+            <mat-list>
+              <h4 mat-subheader>Categorias</h4>
+              <mat-list-item *ngFor="let categoria of usuario.categoriasPreferidas">
+                <h5 mat-line>{{categoria.nombre}}</h5>
+              </mat-list-item>                  
+            </mat-list>
+                          
+          </mat-card-content>
+            
       </mat-card>
-        </div>
-  </div>
+        
 </div>
