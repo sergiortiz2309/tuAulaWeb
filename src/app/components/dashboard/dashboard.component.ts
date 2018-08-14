@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '../../../../node_modules/@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { Clase } from '../../models/clase';
 import { Dashboard } from '../../models/dashboard';
 import { DashboardsService } from '../../services/dashboards.service';
@@ -46,6 +46,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getDashboard();
+  }
+
+  applyFilter(filterValue: string) {
+    this.dsMisClases.filter = filterValue.trim().toLowerCase();
+
+    if (this.dsMisClases.paginator) {
+      this.dsMisClases.paginator.firstPage();
+    }
   }
 
 }
