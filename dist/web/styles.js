@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sortiz\Documents\Curso desarrollo FullStack\tuAulaWeb\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! D:\Projects\tuAulaWeb\src\styles.css */"./src/styles.css");
 
 
 /***/ })

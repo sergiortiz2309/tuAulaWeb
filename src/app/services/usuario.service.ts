@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario';
-import { Observable } from '../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,7 @@ export class UsuariosService {
   apiService: any;
 
   constructor() { }
+  
   getUsuario(): Observable<Usuario> {
 
     return new Observable( (observer) => {

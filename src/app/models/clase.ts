@@ -1,6 +1,5 @@
 export class Clase {
     id: number;
-    nombre: string;
     idCurso : number;
     nombreCurso : string;
     idUpz : number;
