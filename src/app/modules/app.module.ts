@@ -48,6 +48,7 @@ import {
   MatTreeModule
 } from '@angular/material';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { BuscarCursosComponent } from '../components/buscar-cursos/buscar-cursos.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
     RegistroComponent,
     LandingComponent,
     UsuarioComponent,
-    DashboardComponent
+    DashboardComponent,
+    BuscarCursosComponent
   ],
   imports: [
     BrowserModule,
