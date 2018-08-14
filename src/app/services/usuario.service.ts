@@ -23,6 +23,7 @@ export class UsuariosService {
     usuario.apellido = "Ortiz";
     usuario.direccion = "Calle falsa 123";
     usuario.categoriasPreferidas = [{id : 1, nombre : "Idiomas"}];
+    usuario.upzsPreferidas = [{id : 1, nombre : "Pardo Rubio"}];
     usuario.email = "abc@gmail.com";
     usuario.telefono = "300 500 2001"
     usuario.nombre = "Cesar";
