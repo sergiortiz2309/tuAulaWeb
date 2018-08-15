@@ -41,15 +41,16 @@ export class DashboardsService {
           fechaInicial : new Date()
         }
       ],
-      misCursosSugeridos : [
+      clasesSugeridas : [
         {
           id : 1,
-          nombre: "Pintura al oleo",
-          idCategoria : 1,
-          nombreCategoria : "Pintura",
-          idModalidad : 1,
-          nombreModalidad : "Presencial",
-          clases : []
+          idCurso : 2, 
+          nombreCurso: "Pintura al oleo",
+          idUpz : 1, 
+          nombreUpz : "UPZ 1", 
+          ubicacion : "Ubicacion 2", 
+          fechaFinal : new Date(), 
+          fechaInicial : new Date()
         }
       ]
     }

@@ -1,8 +1,8 @@
 <mat-toolbar class="navbar navbar-light static-top" style="background-color: rgba(0,140,208,0.7);">
   <button mat-button routerLink=""><h3>Tu Aula</h3></button>
 </mat-toolbar>
-<div class="basic-container"> 
-  <div class="row">
+<div class="container-fluid"> 
+  <div class="row p-4">
 
     <div class="col-md-6">
       <h3>Mis Clases</h3>
@@ -10,7 +10,8 @@
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
       <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dsMisClases" matSort>
+
+        <table mat-table [dataSource]="dsMisClases" matSort class="container-fluid">
           <ng-container matColumnDef="nombreCurso">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Curso </th>
             <td mat-cell *matCellDef="let row"> {{row.nombreCurso}} </td>
@@ -36,12 +37,12 @@
     </div>
 
     <div class="col-md-6">
-      <h3>Mis Cursos Sugeridos </h3>
+      <h3>Clases Sugeridas</h3>
       <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
     <div class="mat-elevation-z8">
-      <table mat-table [dataSource]="dsMisClases" matSort>
+      <table mat-table [dataSource]="dsClasesSugeridas" matSort class="container-fluid">
         <ng-container matColumnDef="nombreCurso">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Curso </th>
           <td mat-cell *matCellDef="let row"> {{row.nombreCurso}} </td>

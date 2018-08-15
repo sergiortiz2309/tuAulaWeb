@@ -19,13 +19,20 @@ export class DashboardComponent implements OnInit {
     'fechaFinal'
   ];
   
+  clasesSugeridasColumnsToDisplay = [
+    'nombreCurso', 
+    'nombreUpz', 
+    'fechaInicial', 
+    'fechaFinal'
+  ];
+
   dsMisClases : MatTableDataSource<Clase>;
   @ViewChild(MatPaginator) paginatorMisClase: MatPaginator;
   @ViewChild(MatSort) sortMisClases: MatSort;
 
-  dsMisCursos : MatTableDataSource<Curso>;
-  @ViewChild(MatPaginator) paginatorMisCursos: MatPaginator;
-  @ViewChild(MatSort) sortMisCursos: MatSort;
+  dsClasesSugeridas : MatTableDataSource<Clase>;
+  @ViewChild(MatPaginator) paginatorClasesSugeridas: MatPaginator;
+  @ViewChild(MatSort) sortClasesSugeridas: MatSort;
 
   constructor(private dashboardsService : DashboardsService) { }
 
@@ -39,6 +46,10 @@ export class DashboardComponent implements OnInit {
             this.dsMisClases = new MatTableDataSource(dashboard.misClases);
             this.dsMisClases.sort = this.sortMisClases;
             this.dsMisClases.paginator = this.paginatorMisClase;
+            //
+            this.dsClasesSugeridas = new MatTableDataSource(dashboard.clasesSugeridas);
+            this.dsClasesSugeridas.sort = this.sortClasesSugeridas;
+            this.dsClasesSugeridas.paginator = this.paginatorClasesSugeridas;
           },
           error => {}
         );

@@ -25,3 +25,7 @@ body {
   width: 100%;
 } */
 
+.mat-row:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}

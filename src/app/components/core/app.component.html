@@ -1,3 +1,13 @@
 
-<router-outlet></router-outlet>
-<notifier-container></notifier-container>
+<mat-sidenav-container>
+    <mat-sidenav 
+        #sidenav 
+        mode="side" 
+        [(opened)]="sidenavOpened">
+        Sidenav content
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+        <notifier-container></notifier-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>

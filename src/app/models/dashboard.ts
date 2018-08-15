@@ -3,5 +3,5 @@ import { Curso } from './curso';
 
 export class Dashboard {
     misClases: Array<Clase>;
-    misCursosSugeridos: Array<Curso>;
+    clasesSugeridas: Array<Clase>;
 }

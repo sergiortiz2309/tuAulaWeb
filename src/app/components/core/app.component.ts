@@ -7,7 +7,8 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  sidenavOpened : boolean = true;
 
   constructor(public apiService: ApiService) {
   }
