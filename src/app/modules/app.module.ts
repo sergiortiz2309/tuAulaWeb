@@ -59,7 +59,8 @@ import { BuscarCursosComponent } from '../components/buscar-cursos/buscar-cursos
     LandingComponent,
     UsuarioComponent,
     DashboardComponent,
-    BuscarCursosComponent
+    BuscarCursosComponent,
+    ClaseComponent
   ],
   imports: [
     BrowserModule,
