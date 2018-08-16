@@ -49,6 +49,7 @@ import {
 } from '@angular/material';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { BuscarCursosComponent } from '../components/buscar-cursos/buscar-cursos.component';
+import { ClaseComponent } from '../components/clase/clase.component';
 
 
 @NgModule({
