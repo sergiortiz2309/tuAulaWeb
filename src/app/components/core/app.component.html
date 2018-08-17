@@ -1,6 +1,9 @@
 <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" [(opened)]="sidenavOpened" style="width: 200px" class="p-1">
-        <mat-list role="list">
+    <mat-sidenav #sidenav mode="side" [(opened)]="sidenavOpened" role="navigation">
+        <mat-toolbar color="accent">
+            <h3>Menu</h3>
+        </mat-toolbar>
+        <mat-list role="list"  class="p-1">
             <mat-list-item role="listitem">
                 <button mat-button routerLink="/">
                     <mat-icon>home</mat-icon>
@@ -33,12 +36,12 @@
             </mat-list-item>
         </mat-list>
     </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar class="navbar navbar-light static-top" style="background-color: rgba(0,140,208,0.7);" *ngIf="!isLandingPage">
-            <button mat-button (click)="sidenav.toggle()">
+    <mat-sidenav-content role="main">
+        <mat-toolbar color="primary" *ngIf="showToolbar">
+            <button mat-button (click)="sidenav.toggle()" *ngIf="userLogedIn">
                 <mat-icon>menu</mat-icon>
             </button>
-            <!-- <button mat-button routerLink=""><h3>Tu Aula</h3></button> -->
+            <h3>Tu Aula</h3>
         </mat-toolbar>
         <router-outlet></router-outlet>
         <notifier-container></notifier-container>

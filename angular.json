@@ -23,9 +23,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/stylesheets/custom-theme.scss"
             ],
             "scripts": []
+            
           },
           "configurations": {
             "production": {

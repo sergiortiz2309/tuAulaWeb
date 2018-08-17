@@ -11,7 +11,8 @@ import { filter } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   
   sidenavOpened : boolean;
-  isLandingPage : boolean;
+  showToolbar : boolean;
+  userLogedIn : boolean;
 
   constructor(public apiService: ApiService, 
               private router : Router ) {
@@ -22,12 +23,14 @@ export class AppComponent implements OnInit {
             .events
             .pipe(filter(event => event instanceof NavigationEnd))
             .subscribe( () => {
-              this.isLandingPage = false;
+              this.showToolbar = true;
+              this.userLogedIn = true;
               if (this.router.url == "/"){
-                this.isLandingPage = true;
+                this.showToolbar = false;
               } 
               if (this.router.url == "/" || this.router.url == "/login" || this.router.url == "/registro"){
                 this.sidenavOpened = false;
+                this.userLogedIn = false;
               } 
             })
   }

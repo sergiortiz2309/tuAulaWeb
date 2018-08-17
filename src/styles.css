@@ -1,4 +1,4 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 @import '~angular-notifier/styles/core.css';
 @import '~angular-notifier/styles/themes/theme-material.css';
 @import '~angular-notifier/styles/types/type-error.css';
@@ -9,23 +9,13 @@
 body { 
   font-family: Roboto, Arial, sans-serif;
   margin: 0;
+  height: 100%;
 }
-
-.basic-container {
-  padding: 30px;
-}
-
-/* .container {
-  display: flex;
-  flex-direction: column;
-  padding: 15px
-} */
-
-/* .container > * {
-  width: 100%;
-} */
 
 .mat-row:hover {
   background-color: whitesmoke;
   cursor: pointer;
 }
+
+.container-fluid,
+.row { height: inherit; }
