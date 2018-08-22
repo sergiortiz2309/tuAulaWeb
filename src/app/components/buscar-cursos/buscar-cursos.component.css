@@ -1,0 +1,12 @@
+.radio-button {
+    display: inline-flex;
+    flex-direction: row;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+  
+  table {
+    width: 100%;
+  }
