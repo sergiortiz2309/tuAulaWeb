@@ -6,6 +6,7 @@ import { RegistroComponent }      from '../components/registro/registro.componen
 import { UsuarioComponent } from '../components/usuario/usuario.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { BuscarCursosComponent } from '../components/buscar-cursos/buscar-cursos.component';
+import { EdicionUsuarioComponent } from '../components/edicion-usuario/edicion-usuario.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'dashboard', component: DashboardComponent},
   { path: 'usuario', component: UsuarioComponent},
-  { path: 'buscarCursos', component: BuscarCursosComponent}
+  { path: 'buscarCursos', component: BuscarCursosComponent},
+  { path: 'edicionUsuario', component: EdicionUsuarioComponent}
 ];
 
 @NgModule({

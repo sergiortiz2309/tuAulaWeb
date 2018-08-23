@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row p-4">
+    <div class="col-md-12">
+      <h3>Editar Datos de usuario</h3>
+      <br>
+      <mat-card class="mat-elevation-z8">
+        <mat-card-content>
+          <div class="column">
+            <mat-form-field class="row">
+              <input matInput placeholder="Ingresa tu email" [(ngModel)]="usuario.email">
+            </mat-form-field >
+            <mat-form-field class="row">
+              <input matInput type="password" placeholder="Ingresa tu contraseña" [(ngModel)]="usuario.password">
+            </mat-form-field>
+            <mat-form-field class="row">
+              <input matInput type="password" placeholder="Repite tu contraseña" [(ngModel)]="repeticionDePassword">
+            </mat-form-field>
+            <mat-form-field class="row">
+              <input matInput placeholder="Nombre" [(ngModel)]="usuario.nombre">
+            </mat-form-field>
+            <mat-form-field class="row">
+              <input matInput placeholder="Apellido" [(ngModel)]="usuario.apellido">
+            </mat-form-field>
+            <mat-form-field class="row">
+              <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" [(ngModel)]="usuario.fechaDeNacimiento">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="row">
+              <input matInput placeholder="Dirección" [(ngModel)]="usuario.direccion">
+            </mat-form-field>
+            <mat-form-field class="row">
+              <input matInput placeholder="Telefono" [(ngModel)]="usuario.telefono">
+            </mat-form-field>
+          </div>
+          <div class="column">
+            <div class="row">
+              <mat-list>
+                <mat-list-item *ngFor="let upz of upzs">
+                  <mat-checkbox>{{upz.name}}</mat-checkbox>
+                </mat-list-item>
+              </mat-list>
+            </div>
+            <div class="row">
+                <mat-list>
+                    <mat-list>
+                        <mat-list-item *ngFor="let categoria of categorias"><mat-checkbox>{{categoria.name}}</mat-checkbox></mat-list-item>                  
+                    </mat-list> 
+                </mat-list>
+              </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+  </div>
+
+</div>

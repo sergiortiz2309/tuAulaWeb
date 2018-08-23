@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../../services/usuario.service';
 import { Usuario } from '../../models/usuario';
+import { UsuariosService } from '../../services/usuario.service';
 
 @Component({
-  selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
-  styleUrls: ['./usuario.component.css']
+  selector: 'app-edicion-usuario',
+  templateUrl: './edicion-usuario.component.html',
+  styleUrls: ['./edicion-usuario.component.css']
 })
-export class UsuarioComponent implements OnInit {
+export class EdicionUsuarioComponent implements OnInit {
 
   public usuario = new Usuario();
 
@@ -17,5 +17,4 @@ export class UsuarioComponent implements OnInit {
     this.usuariosService.getUsuario().subscribe(data => this.usuario = data);
   }
 
- 
 }

@@ -50,6 +50,7 @@ import {
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { BuscarCursosComponent } from '../components/buscar-cursos/buscar-cursos.component';
 import { ClaseComponent } from '../components/clase/clase.component';
+import { EdicionUsuarioComponent } from '../components/edicion-usuario/edicion-usuario.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ClaseComponent } from '../components/clase/clase.component';
     UsuarioComponent,
     DashboardComponent,
     BuscarCursosComponent,
-    ClaseComponent
+    ClaseComponent,
+    EdicionUsuarioComponent
   ],
   imports: [
     BrowserModule,
