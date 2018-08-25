@@ -3,6 +3,7 @@ import { Upz } from '../../models/upz';
 import { UpzsService } from '../../services/upzs.service';
 import { CategoriasService } from '../../services/categorias.service';
 import { Categoria } from '../../models/categoria';
+import { AppService } from '../../services/app.service';
 
 export interface Clases {
   nombre: string;
@@ -35,7 +36,10 @@ export class BuscarCursosComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'modalidad', 'categoria', 'duracion'];
   dataSource = ELEMENT_DATA;
 
-  constructor(upzsService : UpzsService, categoriasService : CategoriasService) { 
+  constructor(public appService : AppService,
+              upzsService : UpzsService, 
+              categoriasService : CategoriasService) { 
+    appService.currentViewName = "Buscar Cursos"
     this.upzsService = upzsService;
     this.categoriasService = categoriasService;
   }
@@ -44,5 +48,4 @@ export class BuscarCursosComponent implements OnInit {
     this.upzsService.getUpzs().subscribe(data =>{ this.upzs = data; });
     this.categoriasService.getCategorias().subscribe(data => this.categorias = data );
   }
-
 }

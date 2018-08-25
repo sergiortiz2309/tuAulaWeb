@@ -1,7 +1,7 @@
-<mat-sidenav-container>
+<mat-sidenav-container style="min-height: 100vh">
     <mat-sidenav #sidenav mode="side" [(opened)]="sidenavOpened" role="navigation">
         <mat-toolbar color="accent">
-            <h3>Menu</h3>
+            <h3>Tu Aula</h3>
         </mat-toolbar>
         <mat-list role="list"  class="p-1">
             <mat-list-item role="listitem">
@@ -31,7 +31,7 @@
             <mat-list-item role="listitem">
                 <button mat-button routerLink="/usuario">
                     <mat-icon>ballot</mat-icon>
-                    <span> Cuenta</span>
+                    <span> Mi Cuenta</span>
                 </button>
             </mat-list-item>
         </mat-list>
@@ -41,7 +41,7 @@
             <button mat-button (click)="sidenav.toggle()" *ngIf="userLogedIn">
                 <mat-icon>menu</mat-icon>
             </button> 
-            <h3>Tu Aula</h3>
+            <h3>{{appService.currentViewName}}</h3>
         </mat-toolbar>  
         <router-outlet></router-outlet>
         <notifier-container></notifier-container>

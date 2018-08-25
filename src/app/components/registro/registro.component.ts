@@ -6,6 +6,7 @@ import { UpzsService } from '../../services/upzs.service';
 import { CategoriasService } from '../../services/categorias.service';
 import { ModalidadesService } from '../../services/modalidades.service';
 import { Modalidad } from '../../models/modalidad';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-registro',
@@ -26,10 +27,14 @@ export class RegistroComponent implements OnInit {
   categoriasService : CategoriasService;
   modalidadesService : ModalidadesService;
 
-  constructor(upzsService : UpzsService, categoriasService : CategoriasService, modalidadesService : ModalidadesService ) { 
+  constructor(upzsService : UpzsService, 
+              categoriasService : CategoriasService, 
+              modalidadesService : ModalidadesService, 
+              public appService : AppService) { 
     this.upzsService = upzsService;
     this.categoriasService = categoriasService;
     this.modalidadesService = modalidadesService;
+    appService.setCurrentViewName("Registro");
   }
 
   ngOnInit() {

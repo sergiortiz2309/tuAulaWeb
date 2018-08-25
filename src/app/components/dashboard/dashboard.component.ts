@@ -4,6 +4,7 @@ import { Clase } from '../../models/clase';
 import { Dashboard } from '../../models/dashboard';
 import { DashboardsService } from '../../services/dashboards.service';
 import { Curso } from '../../models/curso';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,7 +35,10 @@ export class DashboardComponent implements OnInit {
   @ViewChild(MatPaginator) paginatorClasesSugeridas: MatPaginator;
   @ViewChild(MatSort) sortClasesSugeridas: MatSort;
 
-  constructor(private dashboardsService : DashboardsService) { }
+  constructor(private appService : AppService,
+              private dashboardsService : DashboardsService) {
+    this.appService.setCurrentViewName("Dashboard");
+  }
 
   public getDashboard() : void {
 

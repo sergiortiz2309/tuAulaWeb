@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   showToolbar : boolean;
   userLogedIn : boolean;
 
-  constructor(public apiService: ApiService, 
+  constructor(public appService: AppService,
+              public apiService: ApiService, 
               private router : Router ) {
   }
 
