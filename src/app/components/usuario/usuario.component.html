@@ -1,80 +1,82 @@
 <div class="container-fluid">
-  <div class="row p-4">
-    <div class="col-md-6">
-      <h3>Datos de Usuario</h3>
-      <br>
-      <mat-card class="mat-elevation-z8">
-        <mat-card-content>
-          <div class="row">
-            <span class="col col-md-7"></span>
-            <div class="col">
-            <button mat-fab color="primary" routerLink="/edicionUsuario" class="col col-md-2">
-              <i class="material-icons">
-                create
-              </i>
-            </button>
-          </div>
-          </div>
-          <div class="row">
-            <label class="col col-30">
-              <b>Nombre</b>
-            </label>
-            <label class="col col-50">{{usuario.nombre}}</label>
-          </div>
-          <div class="row">
-            <label class="col col-30">
-              <b>Apellido</b>
-            </label>
-            <label class="col col-50">{{usuario.apellido}}</label>
-          </div>
-          <div class="row">
-            <label class="col col-30">
-              <b>Dirección</b>
-            </label>
-            <label class="col col-50">{{usuario.direccion}}</label>
-          </div>
-          <div class="row">
-            <label class="col col-30">
-              <b>Teléfono</b>
-            </label>
-            <label class="col col-50">{{usuario.telefono}}</label>
-          </div>
-          <div class="row">
-            <label class="col col-30">
-              <b>E-mail</b>
-            </label>
-            <label class="col col-50">{{usuario.email}}</label>
-          </div>
-        </mat-card-content>
-      </mat-card>
+  <div class="p-4">
+    <div class="d-flex justify-content-end">     
+        <a class="btn btn-success" routerLink="/edicionUsuario">
+          <i class="material-icons">
+            create
+          </i>
+        </a>
+     
     </div>
+    <div class="row p-4">
+      <div class="col-md-6">
+        <h3>Datos de Usuario</h3>
+        <br>
+        <mat-card class="mat-elevation-z8">
+          <mat-card-content>
+            
+            <div class="row">
+              <label class="col col-30">
+                <b>Nombre</b>
+              </label>
+              <label class="col col-50">{{usuario.nombre}}</label>
+            </div>
+            <div class="row">
+              <label class="col col-30">
+                <b>Apellido</b>
+              </label>
+              <label class="col col-50">{{usuario.apellido}}</label>
+            </div>
+            <div class="row">
+              <label class="col col-30">
+                <b>Dirección</b>
+              </label>
+              <label class="col col-50">{{usuario.direccion}}</label>
+            </div>
+            <div class="row">
+              <label class="col col-30">
+                <b>Teléfono</b>
+              </label>
+              <label class="col col-50">{{usuario.telefono}}</label>
+            </div>
+            <div class="row">
+              <label class="col col-30">
+                <b>E-mail</b>
+              </label>
+              <label class="col col-50">{{usuario.email}}</label>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
 
-    <div class="col-md-6 ">
-      <h3>Preferencias</h3>
-      <br>
-      <mat-card class="mat-elevation-z8">
-        <mat-card-content>
-          <div class="row">
-            <mat-list class="col">
-              <h4 mat-subheader>
-                <b>Categorias</b>
-              </h4>
-              <mat-list-item *ngFor="let categoria of usuario.categoriasPreferidas">
-                <h5 mat-line>{{categoria.nombre}}</h5>
-              </mat-list-item>
-            </mat-list>
-            <mat-list class="col">
-              <h4 mat-subheader>
-                <b>UPZ's</b>
-              </h4>
-              <mat-list-item *ngFor="let upz of usuario.upzsPreferidas">
-                <h5 mat-line>{{upz.nombre}}</h5>
-              </mat-list-item>
-            </mat-list>
-          </div>
-        </mat-card-content>
-      </mat-card>
+      <div class="col-md-6 ">
+        <h3>Preferencias</h3>
+        <br>
+        <mat-card class="mat-elevation-z8">
+          <mat-card-content>
+            <div class="row">
+              <mat-list class="col">
+                <h4 mat-subheader>
+                  <b>Categorias</b>
+                </h4>
+                <mat-list-item *ngFor="let categoria of usuario.categoriasPreferidas">
+                  <h5 mat-line>{{categoria.nombre}}</h5>
+                </mat-list-item>
+              </mat-list>
+              <mat-list class="col">
+                <h4 mat-subheader>
+                  <b>UPZ's</b>
+                </h4>
+                <mat-list-item *ngFor="let upz of usuario.upzsPreferidas">
+                  <h5 mat-line>{{upz.nombre}}</h5>
+                </mat-list-item>
+              </mat-list>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </div>
+
 
 </div>
